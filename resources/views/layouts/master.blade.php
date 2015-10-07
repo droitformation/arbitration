@@ -35,11 +35,11 @@
     </div>
     <footer class="row">
         <div class="eleven columns">
-            <p><a href="{{ url('legal') }}">Legal Structure</a>  |  2013  © Swiss Arbitration Academy SAA</p>
+            <p><a href="{{ url('site/legal') }}">Legal Structure</a>  |  2013  © Swiss Arbitration Academy SAA</p>
         </div>
         <div class="one columns">
             <p style="text-align:right;">
-                <a style="text-decoration:underline;" href="{{ url('archives') }}">Archives</a>
+                <a style="text-decoration:underline;" href="{{ url('site/archives') }}">Archives</a>
             </p>
         </div>
     </footer>

@@ -32,10 +32,11 @@
 
                 <li><a href="{{ url('courses') }}" class="<?php echo (Request::is('courses') ? 'active' : '') ?>">Courses</a>
                     <ul class="sub_menu">
-                        <?php if(!empty($menu_courses)){ ?>
-                        <li><a href="{{ url('course') }}/<?php echo $menu_courses['cas']; ?>">CAS in Arbitration</a></li>
-                        <li class="lastitem"><a href="{{ url('course') }}<?php echo $menu_courses['arbp']; ?>">SAA Practitioner's Course</a></li>
-                        <?php } ?>
+                        @if(!$courses->isEmpty())
+                            @foreach($courses as $course)
+                                <li><a href="{{ url('course/'.$course->id) }}">{{ $course->course_title }}</a></li>
+                            @endforeach
+                        @endif
                     </ul>
                 </li>
                 <li><a href="{{ url('site/tuition') }}" class="<?php echo (Request::is('tuition') ? 'active' : '') ?>">Tuition</a></li>

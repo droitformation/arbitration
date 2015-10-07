@@ -10,4 +10,22 @@ class Course extends Model{
 
     public $timestamps = false;
 
+    public function getCourseTitleAttribute()
+    {
+        if($this->course == 'cas')
+        {
+            return 'CAS in Arbitration';
+        }
+
+        if($this->course == 'arbp')
+        {
+            return 'SAA Practitioner’s Course';
+        }
+    }
+
+    public function modules()
+    {
+        return $this->hasMany('App\Saa\Module\Entities\Module');
+    }
+
 }

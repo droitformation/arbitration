@@ -14,12 +14,12 @@ class CourseEloquent implements CourseInterface{
 
     public function getAll(){
 
-        return $this->course->all();
+        return $this->course->with(['modules'])->get();
     }
 
     public function find($id){
 
-        return $this->course->find($id);
+        return $this->course->with(['modules'])->find($id);
     }
 
     public function create(array $data){

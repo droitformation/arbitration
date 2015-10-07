@@ -22,7 +22,7 @@
                 }
             ?>
 
-            @if($team)
+            @if(!$team->isEmpty())
                 <ul class="team {{ $page->slug }}">
                     @foreach($team as $person)
                         <li>

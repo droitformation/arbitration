@@ -29,6 +29,10 @@ class HomeController extends Controller
         $this->course = $course;
         $this->team   = $team;
         $this->alumni = $alumni;
+
+        $courses = $this->course->getAll()->where('course_status','current');
+
+        view()->share('courses',$courses);
     }
 
     /**
@@ -78,4 +82,23 @@ class HomeController extends Controller
         return view('frontend.alumni')->with(compact('alumni'));
     }
 
+    /**
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function courses()
+    {
+        return view('frontend.courses');
+    }
+
+    /**
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function course($id)
+    {
+        $course = $this->course->find($id);
+
+        return view('frontend.course')->with(compact('course'));
+    }
 }

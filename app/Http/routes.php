@@ -15,3 +15,5 @@ Route::get('/', 'HomeController@index');
 Route::get('/site/{slug}', 'HomeController@page');
 Route::get('/team/{type}', 'HomeController@team');
 Route::get('/alumni', 'HomeController@alumni');
+Route::get('/courses', 'HomeController@courses');
+Route::get('/course/{id}', 'HomeController@course');
