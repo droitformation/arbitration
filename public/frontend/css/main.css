@@ -982,44 +982,49 @@ textarea {
 	.ui-tabs .ui-tabs-panel {
 	    padding:0 2px;
 	}
-	
-	ul.team li {
-		display: block;
-	    float: left;
-	    height: 215px;
-	    line-height: 17px;
-	    list-style: none outside none;
-	    margin: 0 0 0 15px;
-	    width: 130px;
+
+	ul.team li{
+        height: auto;
+        list-style: outside none none;
+        margin-left: 0;
+        width: 100%;
 	}
-	
-	ul.team li img{
-		padding-bottom:3px;
-	}
+
+    ul.team.guest li,
+    ul.team.committee li{
+        clear: both;
+    }
 	
 	ul.team li a{
-		display:block;
-		font-weight:bold;
-	}
-	
-	ul.guest li{
-		clear:both;
-		margin-left: 0;
-		list-style:none;
-	}
-	
-	ul.guest li a{
 		float:right;
 		font-weight:bold;
 		display:block;
-		
 	}
 
-	ul.guest li span{
+	ul.team li span{
 		float:left;
 		display:block;
 		width:370px;
 	}
+
+    ul.council li {
+        display: block;
+        float: left;
+        height: 215px;
+        width: 130px;
+        line-height: 17px;
+        list-style: none outside none;
+        margin: 0 0 0 15px;
+    }
+
+    ul.council li img{
+        padding-bottom:3px;
+    }
+
+    ul.council li a{
+        display:block;
+        font-weight:bold;
+    }
 	
 	ul.links li{
 		display:block;
@@ -1165,7 +1170,17 @@ hr{
 	 border: 0;  
 	 clear: both;   
 	 visibility: hidden; 
-} 
+}
+
+.page-content hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    visibility: visible;
+}
 
 .title-delimiter{
 	background:url(../images/hompage/title-delimiter.png) repeat-x;

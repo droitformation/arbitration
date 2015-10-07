@@ -23,6 +23,50 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->registerPageService();
+        $this->registerBlocService();
+        $this->registerCourseService();
+        $this->registerTeamService();
+        $this->registerAlumniService();
+    }
+
+    protected function registerPageService()
+    {
+        $this->app->singleton('App\Saa\Page\Repo\PageInterface', function()
+        {
+            return new \App\Saa\Page\Repo\PageEloquent(new \App\Saa\Page\Entities\Page);
+        });
+    }
+
+    protected function registerBlocService()
+    {
+        $this->app->singleton('App\Saa\Bloc\Repo\BlocInterface', function()
+        {
+            return new \App\Saa\Bloc\Repo\BlocEloquent(new \App\Saa\Bloc\Entities\Bloc);
+        });
+    }
+
+    protected function registerCourseService()
+    {
+        $this->app->singleton('App\Saa\Course\Repo\CourseInterface', function()
+        {
+            return new \App\Saa\Course\Repo\CourseEloquent(new \App\Saa\Course\Entities\Course);
+        });
+    }
+
+    protected function registerTeamService()
+    {
+        $this->app->singleton('App\Saa\Team\Repo\TeamInterface', function()
+        {
+            return new \App\Saa\Team\Repo\TeamEloquent(new \App\Saa\Team\Entities\Team);
+        });
+    }
+
+    protected function registerAlumniService()
+    {
+        $this->app->singleton('App\Saa\Alumni\Repo\AlumniInterface', function()
+        {
+            return new \App\Saa\Alumni\Repo\AlumniEloquent(new \App\Saa\Alumni\Entities\Alumni);
+        });
     }
 }

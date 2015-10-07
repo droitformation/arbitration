@@ -15,7 +15,7 @@
 				heightStyle: "content"
 			});
 			
-		   $( "#tabs" ).tabs();
+		   $( "#thetabs" ).tabs();
 		   $( "#tabs2" ).tabs();
 		
 			$("#form").validate();
