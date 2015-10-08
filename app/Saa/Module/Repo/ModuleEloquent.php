@@ -19,7 +19,7 @@ class ModuleEloquent implements ModuleInterface{
 
     public function find($id){
 
-        return $this->module->find($id);
+        return $this->module->with(['course'])->find($id);
     }
 
     public function create(array $data){

@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
         $this->registerPageService();
         $this->registerBlocService();
         $this->registerCourseService();
+        $this->registerModuleService();
         $this->registerTeamService();
         $this->registerAlumniService();
     }
@@ -67,6 +68,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('App\Saa\Alumni\Repo\AlumniInterface', function()
         {
             return new \App\Saa\Alumni\Repo\AlumniEloquent(new \App\Saa\Alumni\Entities\Alumni);
+        });
+    }
+
+    protected function registerModuleService()
+    {
+        $this->app->singleton('App\Saa\Module\Repo\ModuleInterface', function()
+        {
+            return new \App\Saa\Module\Repo\ModuleEloquent(new \App\Saa\Module\Entities\Module);
         });
     }
 }

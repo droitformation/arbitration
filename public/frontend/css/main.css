@@ -375,8 +375,12 @@ textarea {
 		position:relative;
 		z-index:1;
 	}
-	
-	.home-course{
+
+    .bloc-smaller{
+        padding:25px 40px 20px 40px;
+    }
+
+    .home-course{
 		height:490px;
 		background:#372620;
 		width:100%;
@@ -1117,6 +1121,13 @@ textarea {
 	    padding: 0 2px;
 		color:#900;
 	}
+
+    .errors p{
+        margin-bottom: 0;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
 	.ok p{
 	  background: url("../images/tick.gif") no-repeat scroll 0 0 transparent;
       color: #274D81;

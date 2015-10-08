@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'info@cas-arbitration.ch', 'name' => 'CAS in Arbitration'],
+    'from' => ['address' => 'info@saa-switzerland.ch', 'name' => 'Swiss Arbitration Academy SAA'],
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', ''),
 
     /*
     |--------------------------------------------------------------------------

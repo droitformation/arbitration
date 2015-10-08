@@ -25,7 +25,7 @@ class Course extends Model{
 
     public function modules()
     {
-        return $this->hasMany('App\Saa\Module\Entities\Module');
+        return $this->belongsToMany('App\Saa\Module\Entities\Module','course_modules','course_id','module_id');
     }
 
 }
