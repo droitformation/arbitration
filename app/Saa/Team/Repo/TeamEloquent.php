@@ -30,11 +30,11 @@ class TeamEloquent implements TeamInterface{
     public function create(array $data){
 
         $team = $this->team->create(array(
-            'title'    => $data['title'],
-            'intro'    => $data['intro'],
-            'content'  => $data['content'],
-            'slug'     => $data['slug'],
-            'editable' => $data['editable']
+            'name'  => $data['name'],
+            'link'  => $data['link'],
+            'photo' => (isset($data['photo']) ? $data['photo'] : ''),
+            'type'  => $data['type'],
+            'rang'  => $data['rang']
         ));
 
         if( ! $team )

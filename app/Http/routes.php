@@ -26,8 +26,11 @@ Route::post('sendMessage', ['uses' => 'HomeController@sendMessage']);
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','administration']], function () {
 
     Route::get('/', 'Backend\AdminController@index');
+    Route::get('acc', 'Backend\AdminController@acc');
     Route::post('upload', 'Backend\UploadController@upload');
-
+    Route::resource('page', 'Backend\PageController');
+    Route::resource('alumni', 'Backend\AlumniController');
+    Route::resource('team', 'Backend\TeamController');
 });
 
 /*

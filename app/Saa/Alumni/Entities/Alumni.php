@@ -6,7 +6,7 @@ class Alumni extends Model{
 
     protected $table = 'saa_alumnis';
 
-    protected $fillable = array('content', 'page_id');
+    protected $fillable = array('name','employer','year','country');
 
     public $timestamps = false;
 

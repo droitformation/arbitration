@@ -231,6 +231,7 @@ $( function() {
         }
     });
 
+    $('#myTab a:first').tab('show');
     //$("[name='centres[]']").bootstrapSwitch({  size: 'mini' });
 
 });

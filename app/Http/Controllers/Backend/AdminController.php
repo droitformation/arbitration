@@ -19,7 +19,18 @@ class AdminController extends Controller {
 	 */
 	public function index()
 	{
-        return view('backend.index');
+        return view('backend.index')->with(['title' => 'Files', 'root' => 'files']);
 	}
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function acc()
+    {
+        return view('backend.index')->with(['title' => 'ACC', 'root' => 'acc']);
+    }
+
 
 }

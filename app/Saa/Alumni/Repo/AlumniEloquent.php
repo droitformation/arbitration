@@ -37,11 +37,10 @@ class AlumniEloquent implements AlumniInterface{
     public function create(array $data){
 
         $alumni = $this->alumni->create(array(
-            'title'    => $data['title'],
-            'intro'    => $data['intro'],
-            'content'  => $data['content'],
-            'slug'     => $data['slug'],
-            'editable' => $data['editable']
+            'name'     => $data['name'],
+            'employer' => $data['employer'],
+            'year'     => $data['year'],
+            'country'  => $data['country']
         ));
 
         if( ! $alumni )
