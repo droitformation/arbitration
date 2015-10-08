@@ -10,6 +10,7 @@ use App\Saa\Course\Repo\CourseInterface;
 use App\Saa\Module\Repo\ModuleInterface;
 use App\Saa\Team\Repo\TeamInterface;
 use App\Saa\Alumni\Repo\AlumniInterface;
+use App\Saa\Testimonial\Repo\TestimonialInterface;
 
 use App\Http\Requests\SendRequest;
 
@@ -20,23 +21,27 @@ class HomeController extends Controller
     protected $course;
     protected $team;
     protected $alumni;
+    protected $testimonial;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(PageInterface $page, CourseInterface $course, TeamInterface $team, AlumniInterface $alumni, ModuleInterface $module)
+    public function __construct(PageInterface $page, CourseInterface $course, TeamInterface $team, AlumniInterface $alumni, ModuleInterface $module, TestimonialInterface $testimonial)
     {
-        $this->page   = $page;
-        $this->course = $course;
-        $this->module = $module;
-        $this->team   = $team;
-        $this->alumni = $alumni;
+        $this->page        = $page;
+        $this->course      = $course;
+        $this->module      = $module;
+        $this->team        = $team;
+        $this->alumni      = $alumni;
+        $this->testimonial = $testimonial;
 
         $courses = $this->course->getAll()->where('course_status','current');
+        $testimonial = $this->testimonial->getAll()->random();
 
         view()->share('courses',$courses);
+        view()->share('testimonial',$testimonial);
     }
 
     /**

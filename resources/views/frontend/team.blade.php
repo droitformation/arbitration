@@ -52,13 +52,8 @@
             @endif
 
         </div>
-
     </div>
 
-    <div class="six columns">
-        <div class="img-holder">
-            <img src="{{ asset('frontend/images/'.$page->image.'') }}" alt="" />
-        </div>
-    </div>
+    @include('partials.sidebar')
 
 @stop

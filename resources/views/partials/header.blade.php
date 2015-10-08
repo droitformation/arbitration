@@ -48,7 +48,7 @@
                     </ul>
                 </li>
                 <li><a href="{{ url('alumni') }}" class="<?php echo (Request::is('alumni') ? 'active' : '') ?>">Alumni</a></li>
-                <li><a href="#" class="<?php echo (Request::is('site/contact') ? 'active' : '') ?>">Contact</a>
+                <li><a href="{{ url('site/contact') }}" class="<?php echo (Request::is('site/contact') ? 'active' : '') ?>">Contact</a>
                     <ul class="sub_menu">
                         <li><a href="{{ url('site/contact') }}">Address</a></li>
                         <li class="lastitem"><a href="{{ url('form') }}">Contact Form</a></li>

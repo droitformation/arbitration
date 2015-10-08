@@ -23,20 +23,6 @@
 
     </div>
 
-    <div class="six columns">
-        <div class="img-holder">
-
-            @if(!$page->blocs->isEmpty())
-                <?php $sort = $page->blocs->sortBy('sorting'); ?>
-                @foreach($sort as $bloc)
-                    <div class="int home">
-                        {!! $bloc->content !!}
-                    </div>
-                @endforeach
-            @endif
-
-            <img src="{{ asset('frontend/images/'.$page->image.'') }}" alt="" />
-        </div>
-    </div>
+    @include('partials.sidebar',['page' => $page])
 
 @stop

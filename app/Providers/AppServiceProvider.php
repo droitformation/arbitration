@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $this->registerModuleService();
         $this->registerTeamService();
         $this->registerAlumniService();
+        $this->registerTestimonialService();
     }
 
     protected function registerPageService()
@@ -76,6 +77,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('App\Saa\Module\Repo\ModuleInterface', function()
         {
             return new \App\Saa\Module\Repo\ModuleEloquent(new \App\Saa\Module\Entities\Module);
+        });
+    }
+
+    protected function registerTestimonialService()
+    {
+        $this->app->singleton('App\Saa\Testimonial\Repo\TestimonialInterface', function()
+        {
+            return new \App\Saa\Testimonial\Repo\TestimonialEloquent(new \App\Saa\Testimonial\Entities\Testimonial);
         });
     }
 }

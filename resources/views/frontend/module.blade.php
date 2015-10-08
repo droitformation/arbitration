@@ -18,6 +18,22 @@
 
     <div class="six columns">
         <div class="img-holder">
+            <div class="int">
+                <dl>
+                    <dt><strong>Head Lecturers : </strong></dt>
+                    <dd>{!! $module->module_lecturers !!}</dd>
+                    <dt><strong>Guest Lecturers : </strong></dt>
+                    <dd>{!! $module->module_lecturers !!}</dd>
+                    <hr/>
+                </dl>
+                <dl>
+                    <dt><strong>Dates</strong></dt>
+                    <dd>{!! $module->module_date !!}</dd>
+                    <dt><strong>Location : </strong></dt>
+                    <dd>{!! $module->module_location !!}</dd>
+                    <hr/>
+                </dl>
+            </div>
             <img src="{{ asset('frontend/images/img9.jpg') }}" alt="" />
         </div>
     </div>

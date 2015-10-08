@@ -48,10 +48,6 @@
 
 </div>
 
-<div class="six columns">
-    <div class="img-holder">
-        <img src="{{ asset('frontend/images/img3.jpg') }}" alt="" />
-    </div>
-</div>
+@include('partials.sidebar', ['page' => $page])
 
 @stop
