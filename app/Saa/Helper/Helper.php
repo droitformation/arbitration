@@ -2,7 +2,7 @@
 
 use Carbon\Carbon;
 
-class File {
+class Helper {
 
 	/*
 	 * Dates functions

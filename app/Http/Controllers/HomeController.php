@@ -40,6 +40,9 @@ class HomeController extends Controller
         $courses = $this->course->getAll()->where('course_status','current');
         $testimonial = $this->testimonial->getAll()->random();
 
+        $hierarchy = $page->getMenu();
+
+        view()->share('hierarchy', $hierarchy);
         view()->share('courses',$courses);
         view()->share('testimonial',$testimonial);
     }

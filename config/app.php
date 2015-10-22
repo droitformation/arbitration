@@ -139,6 +139,7 @@ return [
 
         Illuminate\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Baum\Providers\BaumServiceProvider::class,
         /*
          * Application Service Providers...
          */

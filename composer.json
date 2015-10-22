@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "intervention/image": "dev-master",
         "illuminate/html": "5.*",
-        "guzzlehttp/guzzle": "5.1.0"
+        "guzzlehttp/guzzle": "5.1.0",
+        "baum/baum": "~1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

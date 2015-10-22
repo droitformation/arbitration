@@ -13,7 +13,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 
     /**
@@ -24,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerPageService();
+        $this->registerPageWorkerService();
         $this->registerBlocService();
         $this->registerCourseService();
         $this->registerModuleService();
@@ -37,6 +37,17 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('App\Saa\Page\Repo\PageInterface', function()
         {
             return new \App\Saa\Page\Repo\PageEloquent(new \App\Saa\Page\Entities\Page);
+        });
+    }
+
+    protected function registerPageWorkerService()
+    {
+        $this->app->singleton('App\Saa\Page\Worker\PageWorkerInterface', function()
+        {
+            return new \App\Saa\Page\Worker\PageWorker(
+                \App::make('App\Saa\Page\Repo\PageInterface'),
+                \App::make('App\Saa\Course\Repo\CourseInterface')
+            );
         });
     }
 

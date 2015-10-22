@@ -25,38 +25,11 @@
         <nav class="twelve columns">
             <ul class="dropdown">
 
-                <li><a href="{{ url('/') }}" class="<?php echo (Request::is('/') || Request::is('home') ? 'active' : '') ?>">Home</a></li>
-                <li><a href="{{ url('site/vision') }}" class="<?php echo (Request::is('vision') ? 'active' : '') ?>">Vision</a></li>
-                <li><a href="{{ url('site/about') }}" class="<?php echo (Request::is('about') ? 'active' : '') ?>">About</a></li>
-                <li><a href="{{ url('site/endorse') }}" class="<?php echo (Request::is('endorse') ? 'active' : '') ?>">Endorsement</a></li>
+                @inject('worker', 'App\Saa\Page\Worker\PageWorkerInterface')
 
-                <li><a href="{{ url('courses') }}" class="<?php echo (Request::is('courses') ? 'active' : '') ?>">Courses</a>
-                    <ul class="sub_menu">
-                        @if(!$courses->isEmpty())
-                            @foreach($courses as $course)
-                                <li><a href="{{ url('course/'.$course->id) }}">{{ $course->course_title }}</a></li>
-                            @endforeach
-                        @endif
-                    </ul>
-                </li>
-                <li><a href="{{ url('site/tuition') }}" class="<?php echo (Request::is('tuition') ? 'active' : '') ?>">Tuition</a></li>
-                <li><a href="{{ url('site/team') }}" class="<?php echo (Request::is('team') ? 'active' : '') ?>">Team</a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ url('team/council') }}">The SAA Academic Council</a></li>
-                        <li><a href="{{ url('team/guest') }}">The SAA guest lecturers</a></li>
-                        <li class="lastitem"><a href="{{ url('team/committee') }}">The SAA Advisory Committee</a></li>
-                    </ul>
-                </li>
-                <li><a href="{{ url('alumni') }}" class="<?php echo (Request::is('alumni') ? 'active' : '') ?>">Alumni</a></li>
-                <li><a href="{{ url('site/contact') }}" class="<?php echo (Request::is('site/contact') ? 'active' : '') ?>">Contact</a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ url('site/contact') }}">Address</a></li>
-                        <li class="lastitem"><a href="{{ url('form') }}">Contact Form</a></li>
-                    </ul>
-                </li>
-                <li class="grant"><a href="{{ url('site/grant') }}">SAA Grant</a></li>
-                <li class="grant"><a href="{{ url('site/hill') }}">Hill Grant</a></li>
-                <li class="right"><a href="{{ url('auth/login') }}">User Login</a></li>
+                @foreach($hierarchy as $page)
+                    {!! $worker->renderMenu($page) !!}
+                @endforeach
 
             </ul>
         </nav>

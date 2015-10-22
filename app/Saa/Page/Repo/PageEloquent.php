@@ -17,6 +17,16 @@ class PageEloquent implements PageInterface{
         return $this->page->all();
     }
 
+    public function getTree($key = null, $seperator = '  '){
+
+        return $this->page->getNestedList('title', $key, $seperator);
+    }
+
+    public function getMenu()
+    {
+        return $this->page->whereNull('parent_id')->where('rang','>',0)->orderBy('rang','asc')->get();
+    }
+
     public function find($id){
 
         return $this->page->find($id);
