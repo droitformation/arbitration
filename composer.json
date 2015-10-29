@@ -10,7 +10,8 @@
         "intervention/image": "dev-master",
         "illuminate/html": "5.*",
         "guzzlehttp/guzzle": "5.1.0",
-        "baum/baum": "~1.1"
+        "baum/baum": "~1.1",
+        "mustache/mustache": "~2.9"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -21,6 +21,11 @@ class Course extends Model{
         {
             return 'SAA Practitioner’s Course';
         }
+
+        if($this->course == 'module')
+        {
+            return 'Individual Modules';
+        }
     }
 
     public function modules()

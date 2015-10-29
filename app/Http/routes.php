@@ -105,13 +105,23 @@ Route::get('testing', function()
     //\App\Saa\Page\Entities\Page::buildTree($pages);
 
     $helper = \App::make('App\Saa\Page\Worker\PageWorkerInterface');
+    $course = \App::make('App\Saa\Course\Repo\CourseInterface');
+    $team   = \App::make('App\Saa\Team\Worker\TeamWorkerInterface');
+    $tea   = \App::make('App\Saa\Team\Repo\TeamInterface');
 
     $page   =  new \App\Saa\Page\Entities\Page();
     $pages  = $page->whereNull('parent_id')->where('rang','>',0)->orderBy('rang','asc')->get();
 
-    foreach($pages as $page){
-        echo $helper->renderMenu($page);
-    }
+    $courses = $course->getAll()->where('course_status','current');
+
+    $persons = $tea->getAll('guest');
+    $persons = $persons->groupBy(function ($item, $key) {
+        return substr($item->rang, 0,1);
+    });
+
+    $render = $team->render('guest');
+
+    echo $render;
 
 });
 

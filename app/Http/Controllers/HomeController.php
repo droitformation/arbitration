@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Saa\Page\Repo\PageInterface;
 use App\Saa\Course\Repo\CourseInterface;
 use App\Saa\Module\Repo\ModuleInterface;
-use App\Saa\Team\Repo\TeamInterface;
+use App\Saa\Team\Worker\TeamWorkerInterface;
 use App\Saa\Alumni\Repo\AlumniInterface;
 use App\Saa\Testimonial\Repo\TestimonialInterface;
 
@@ -28,7 +28,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct(PageInterface $page, CourseInterface $course, TeamInterface $team, AlumniInterface $alumni, ModuleInterface $module, TestimonialInterface $testimonial)
+    public function __construct(PageInterface $page, CourseInterface $course, TeamWorkerInterface $team, AlumniInterface $alumni, ModuleInterface $module, TestimonialInterface $testimonial)
     {
         $this->page        = $page;
         $this->course      = $course;
@@ -77,10 +77,16 @@ class HomeController extends Controller
      */
     public function team($type)
     {
-        $team = $this->team->findByType($type);
+        $honorary = '';
+
+        $team = $this->team->render($type);
+        if($type == 'council')
+        {
+            $honorary = $this->team->render($type,true);
+        }
         $page = $this->page->findBySlug($type);
 
-        return view('frontend.team')->with(compact('page','team'));
+        return view('frontend.team')->with(compact('page','team','honorary'));
     }
 
     /**

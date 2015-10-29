@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         $this->registerTeamService();
         $this->registerAlumniService();
         $this->registerTestimonialService();
+        $this->registerTeamWorkerService();
     }
 
     protected function registerPageService()
@@ -46,7 +47,8 @@ class AppServiceProvider extends ServiceProvider
         {
             return new \App\Saa\Page\Worker\PageWorker(
                 \App::make('App\Saa\Page\Repo\PageInterface'),
-                \App::make('App\Saa\Course\Repo\CourseInterface')
+                \App::make('App\Saa\Course\Repo\CourseInterface'),
+                \App::make('App\Saa\Team\Repo\TeamInterface')
             );
         });
     }
@@ -96,6 +98,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('App\Saa\Testimonial\Repo\TestimonialInterface', function()
         {
             return new \App\Saa\Testimonial\Repo\TestimonialEloquent(new \App\Saa\Testimonial\Entities\Testimonial);
+        });
+    }
+
+    protected function registerTeamWorkerService()
+    {
+        $this->app->singleton('App\Saa\Team\Worker\TeamWorkerInterface', function()
+        {
+            return \App::make('App\Saa\Team\Worker\TeamWorker');
         });
     }
 }
